@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Data Analysis</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="background"></div>
+    <div class="container">
+        <header>
+            <h1>Cash Flow Dashboard</h1>
+            <nav>
+                <ul>
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="dashboard.html" class="active">Dashboard</a></li>
+                    <li><a href="logout.html">Logout</a></li>
+
+                </ul>
+            </nav>
+        </header>
+
+        <main class="dashboard-page">
+            <div class="sidebar">
+                <ul>
+                    <li><a href="#import-data"><i class="fas fa-file-import"></i> Import Data</a></li>
+                    <li><a href="#filter-transaction"><i class="fas fa-filter"></i> Filter Transaction</a></li>
+                    <li><a href="#visualization"><i class="fas fa-chart-line"></i> Visualization</a></li>
+                    <li><a href="#detect-anomalies"><i class="fas fa-exclamation-triangle"></i> Detect Anomalies</a></li>
+                    <li><a href="#generate-reports"><i class="fas fa-file-alt"></i> Generate Reports</a></li>
+                </ul>
+            </div>
+
+            <div class="content">
+                <section id="import-data" class="tab-content active">
+                    <h2><i class="fas fa-file-import"></i> Import Data</h2>
+                    <div class="card">
+                        <div class="form-group">
+                            <label for="dataFile">Select Data File</label>
+                            <input type="file" id="dataFile" accept=".csv, .json, .xlsx">
+                        </div>
+                        <button id="validateDataBtn" class="btn"><i class="fas fa-check-circle"></i> Validate Data</button>
+                        <div id="validationResult" class="validation-result"></div>
+                        <button id="processDataBtn" class="btn" disabled><i class="fas fa-cogs"></i> Process Data</button>
+                    </div>
+                </section>
+
+                <section id="filter-transaction" class="tab-content">
+                    <h2><i class="fas fa-filter"></i> Filter Transaction</h2>
+                    <div class="card">
+                        <div class="form-group">
+                            <label for="filterCriteria">Select Filter Criteria</label>
+                            <select id="filterCriteria" multiple>
+                                <option value="date">Date Range</option>
+                                <option value="amount">Amount</option>
+                                <option value="category">Category</option>
+                                <option value="location">Location</option>
+                            </select>
+                        </div>
+                        <button id="applyFiltersBtn" class="btn"><i class="fas fa-sliders-h"></i> Apply Filters</button>
+                        <div id="filterResult" class="filter-result"></div>
+                    </div>
+                </section>
+
+                <section id="visualization" class="tab-content">
+                    <h2><i class="fas fa-chart-line"></i> Visualization</h2>
+                    <div class="card">
+                        <div class="visualization-container">
+                            <canvas id="dataChart"></canvas>
+                            <button id="generateGraphBtn" class="btn"><i class="fas fa-project-diagram"></i> Generate Node-Edge Graph</button>
+                            <div class="interaction-panel">
+                                <button id="zoomInBtn" class="btn-small"><i class="fas fa-search-plus"></i></button>
+                                <button id="zoomOutBtn" class="btn-small"><i class="fas fa-search-minus"></i></button>
+                                <button id="updateVizBtn" class="btn"><i class="fas fa-sync-alt"></i> Update Visualization</button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="detect-anomalies" class="tab-content">
+                    <h2><i class="fas fa-exclamation-triangle"></i> Detect Anomalies</h2>
+                    <div class="card">
+                        <div class="anomaly-detection">
+                            <button id="runAlgorithmBtn" class="btn"><i class="fas fa-play"></i> Run Algorithm</button>
+                            <div id="anomalyResults" class="results">
+                                <h3>Detected Patterns</h3>
+                                <div id="patternsList" class="patterns-list"></div>
+                                <button id="highlightPatternsBtn" class="btn"><i class="fas fa-highlighter"></i> Highlight Patterns</button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="generate-reports" class="tab-content">
+                    <h2><i class="fas fa-file-alt"></i> Generate Reports</h2>
+                    <div class="card">
+                        <div class="form-group">
+                            <label for="reportType">Select Report Type</label>
+                            <select id="reportType">
+                                <option value="summary">Summary Report</option>
+                                <option value="detailed">Detailed Report</option>
+                                <option value="anomaly">Anomaly Report</option>
+                                <option value="custom">Custom Report</option>
+                            </select>
+                        </div>
+                        <button id="createReportBtn" class="btn"><i class="fas fa-file-export"></i> Create Report</button>
+                        <div id="reportPreview" class="report-preview"></div>
+                        <button id="exportReportBtn" class="btn" disabled><i class="fas fa-download"></i> Export Report</button>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
