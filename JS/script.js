@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 return;
             }
             
-            // In a real app, you would send this to a server
+            // This will be send to a server
             alert('Account created successfully! Please login.');
             window.location.href = 'index.html';
         });
@@ -177,8 +177,8 @@ document.addEventListener('DOMContentLoaded', function() {
     if (runAlgorithmBtn && highlightPatternsBtn) {
         runAlgorithmBtn.addEventListener('click', function() {
             // Simulate anomaly detection
-            setTimeout(() => {
-                const anomalies = [
+            // setTimeout(() => {
+               // const anomalies = [
                     'Unusually high transaction on July 15th',
                     'Multiple small transactions from same location',
                     'Transaction amount exceeds threshold'
